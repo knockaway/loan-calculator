@@ -11,10 +11,10 @@
     }
   },
   "files": ["lib", "dist"],
-  "homepage": "https://github.com/knockaway/apr-calculator",
+  "homepage": "https://github.com/knockaway/loan-calculator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/knockaway/apr-calculator.git"
+    "url": "https://github.com/knockaway/loan-calculator.git"
   },
   "keywords": ["loan", "calculator", "apr", "apr", "interest"],
   "dependencies": {
