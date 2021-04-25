@@ -1,0 +1,10 @@
+coverage-map: 'coverage-map.cjs'
+
+files:
+  - 'lib/**/*.test.js'
+
+# Disable extra loaders built-in to Tap
+jsx: false
+ts: false
+
+test-env: 'NODE_OPTIONS=--loader @istanbuljs/esm-loader-hook'
