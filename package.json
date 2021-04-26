@@ -16,7 +16,7 @@
     "type": "git",
     "url": "https://github.com/knockaway/loan-calculator.git"
   },
-  "keywords": ["loan", "calculator", "apr", "apr", "interest"],
+  "keywords": ["loan", "calculator", "apr", "apy", "interest"],
   "dependencies": {
     "newton-raphson-method": "1.0.2"
   },
