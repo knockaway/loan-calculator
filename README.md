@@ -41,7 +41,7 @@ const pmt = calculatePayment({
 });
 ```
 
-### calculatePayment
+### convertCompoundingFrequency
 
 ```js
 import { convertCompoundingFrequency } from '@knockaway/loan-calculator';
