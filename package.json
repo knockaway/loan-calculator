@@ -10,13 +10,22 @@
       "require": "./dist/cjs/lib/index.js"
     }
   },
-  "files": ["lib", "dist"],
+  "files": [
+    "lib",
+    "dist"
+  ],
   "homepage": "https://github.com/knockaway/loan-calculator",
   "repository": {
     "type": "git",
     "url": "https://github.com/knockaway/loan-calculator.git"
   },
-  "keywords": ["loan", "calculator", "apr", "apy", "interest"],
+  "keywords": [
+    "loan",
+    "calculator",
+    "apr",
+    "apy",
+    "interest"
+  ],
   "dependencies": {
     "newton-raphson-method": "1.0.2"
   },
@@ -31,10 +40,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^6.0.0",
     "prettier": "^2.2.1",
-    "tap": "^15.0.4",
-    "webpack": "^5.35.0",
-    "webpack-cli": "^4.6.0",
-    "webpack-node-externals": "^3.0.0"
+    "tap": "^15.0.4"
   },
   "scripts": {
     "build-cjs": "rm -rf dist/cjs/lib && babel lib --out-dir dist/cjs/lib --plugins=@babel/plugin-transform-modules-commonjs --ignore 'lib/**/*.test.js'",
