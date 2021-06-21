@@ -15,6 +15,7 @@
     "dist"
   ],
   "homepage": "https://github.com/knockaway/loan-calculator",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/knockaway/loan-calculator.git"
