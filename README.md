@@ -2,6 +2,8 @@
 
 A set of calculator utilities related to loans.
 
+Supports usage by both CJS and ESM.
+
 ### calculateApr
 
 Calculates the APR (Annual Percentage Rate) of a loan with the given fees and structure.
@@ -22,6 +24,19 @@ const apr = calculateApr({
 // apr ~ 0.03122
 ```
 
+##### Parameters
+
+- `loanAmount` Amount to be loaned, after down payment.
+- `interestRate` Raw interest rate, e.g. 0.03125
+- `numberOfPayments` Number of payments in full loan term, e.g. 360 for a
+  30 Year Mortgage paid monthly
+- `paymentFrequency` How many times per year payments are made. Default: 12
+- `compoundingFrequency` How many times per year interest compounds. Default: 12
+- `financedFees` Financed fees are rolled into the loan and increase the
+  monthly payment. Default: 0
+- `upfrontFees` Upfront fees effectively reduce the amount initially received in the
+  loan instead of increasing monthly payment. Default: 0
+
 ### calculateApy
 
 Calculates the APY (Annual Percentage Yield) of a loan with the given interest rate.
@@ -36,6 +51,11 @@ const apy = calculateApy({
 
 // apy ~ 0.03167
 ```
+
+##### Parameters
+
+- `loanAmount` Amount to be loaned, after down payment.
+- `compoundingFrequency` How many times per year interest compounds. Default: 12
 
 ### calculatePayment
 
@@ -54,6 +74,13 @@ const pmt = calculatePayment({
 
 // pmt ~ 1349.13
 ```
+
+##### Parameters
+
+- `presentValue` Present value of the loan
+- `interestRate` Raw interest rate, e.g. 0.03125
+- `numberOfPayments` Number of payments in full loan term, e.g. 360 for a
+  30 Year Mortgage paid monthly
 
 ### convertCompoundingFrequency
 
@@ -77,3 +104,9 @@ const rate = convertCompoundingFrequency({
 
 // rate ~ 0.0603
 ```
+
+##### Parameters
+
+- `interestRate` Raw interest rate, e.g. 0.03125
+- `oldCompoundingFrequency` How many times per year interest compounds.
+- `newCompoundingFrequency` How many times per year interest will compound after conversion.
