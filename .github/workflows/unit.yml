@@ -1,30 +1,34 @@
-name: Unit
+name: unit
 
 on:
+  push:
+    paths-ignore:
+      - '*.md'
   pull_request:
-    branches:
-      - master
+    paths-ignore:
+      - '*.md'
 
 jobs:
-  run_tests:
-    name: Unit Tests
+  test:
+    runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        os:
-          - ubuntu-latest
-        node:
-          - 12.x
-          - 14.x
-    runs-on: ${{ matrix.os }}
+        node-version: [14, 16]
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node }}
-          registry-url: "https://registry.npmjs.org"
-      - name: Install Packages
-        run: npm install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Run Tests
-        run: npm run test
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install
+        run: npm install --ignore-scripts
+      - name: Run tests
+        run: npm run test:cov

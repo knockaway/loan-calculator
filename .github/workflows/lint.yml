@@ -1,23 +1,29 @@
 name: Lint
 
 on:
+  push:
+    paths-ignore:
+      - '*.md'
   pull_request:
-    branches:
-      - master
+    paths-ignore:
+      - '*.md'
 
 jobs:
   lint:
     name: Lint Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: 14.x
-          registry-url: "https://registry.npmjs.org"
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Install Packages
-        run: npm install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm install --ignore-scripts
       - name: Lint Code
         run: npm run lint
