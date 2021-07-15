@@ -15,9 +15,10 @@ exports.calculatePayment = calculatePayment;
  *                                (1 + i)^n - 1
  *
  * @param {object} opts
- * @param {number} opts.presentValue - present value of loan
+ * @param {number} opts.presentValue - Present value of the loan
  * @param {number} opts.interestRate - Raw interest rate, e.g. 0.03125
- * @param {number} opts.numberOfPayments - number of periods
+ * @param {number} opts.numberOfPayments - Number of payments in full loan term,
+ * e.g. 360 for a 30 Year Mortgage paid monthly
  * @returns {number} - The payment that will pay off the loan balance after n periods
  */
 function calculatePayment({

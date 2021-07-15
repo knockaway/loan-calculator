@@ -1,12 +1,23 @@
 ## @knockaway/loan-calculator
 
-A set of calculator utilities related to loans.
+The goal of this project is to make loan calculations as simple as
+using any one of the free online loan calculators. Just inputs and
+outputs!
 
-Supports usage by both CJS and ESM.
+Do you have an idea for a loan-calculator function? We welcome
+open source contributions!
+
+Brought to you by the developers at [Knock](https://www.knock.com/),
+who found the need to calculate APR, APY, and monthly payments for features
+related to the [Knock Home Swap](https://www.knock.com/how-it-works).
+
+It may be used by both CJS and ESM module formats.
 
 ### calculateApr
 
 Calculates the APR (Annual Percentage Rate) of a loan with the given fees and structure.
+
+Compare to [Calculator Soup - APR Calculator](https://www.calculatorsoup.com/calculators/financial/apr-calculator.php).
 
 ```js
 import { calculateApr } from '@knockaway/loan-calculator';
@@ -41,6 +52,8 @@ const apr = calculateApr({
 
 Calculates the APY (Annual Percentage Yield) of a loan with the given interest rate.
 
+Compare to [Calculator Soup - Effective Interest Rate Calculator](https://www.calculatorsoup.com/calculators/financial/effective-interest-rate-calculator.php).
+
 ```js
 import { calculateApy } from '@knockaway/loan-calculator';
 
@@ -62,6 +75,8 @@ const apy = calculateApy({
 Just like the PMT function of a spreadsheet, this function calculates the periodic
 payment needed to pay off the present loan balance after n periods of payments and
 compounding at the given interest rate.
+
+Compare to [Calculator Soup - Advanced Loan Calculator](https://www.calculatorsoup.com/calculators/financial/loan-calculator-advanced.php).
 
 ```js
 import { calculatePayment } from '@knockaway/loan-calculator';
@@ -92,6 +107,8 @@ monthly but payments are made quarterly. The monthly interest rate is 0.04 / 12,
 12 times gives an APY rate of (1 + 0.04 / 12)^12 - 1 == 0.04074. This function wlil determine
 the interest rate which can be compounded only 4 times (quarterly) and produce the same effective
 interest rate of 0.04074.
+
+Compare to [Calculator Soup - Equivalent Interest Rate Calculator](https://www.calculatorsoup.com/calculators/financial/equivalent-interest-rate-calculator.php).
 
 ```js
 import { convertCompoundingFrequency } from '@knockaway/loan-calculator';
