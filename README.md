@@ -63,7 +63,7 @@ const apy = calculateApy({
 
 ##### Parameters
 
-- `loanAmount` Amount to be loaned, after down payment.
+- `interestRate` Raw interest rate, e.g. 0.03125
 - `compoundingFrequency` How many times per year interest compounds. Default: 12
 
 ### calculatePayment
